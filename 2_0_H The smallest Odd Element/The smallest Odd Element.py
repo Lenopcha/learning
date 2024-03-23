@@ -1,12 +1,15 @@
-my_input = input("Just give me some numbers, separated by spaces: ")
-numbers = [int(x) for x in my_input.split()]
-minimum = int(max(my_input))
+print("Just give me some numbers, separated by spaces: ")
+numbers = [int(x) for x in input().split()]
+minimum = max(numbers)
+found = False
+
 
 for num in numbers:
     if num % 2 != 0 and num < minimum:
         minimum = num
+        found = True
 
-if minimum != int(max(my_input)):  # Якщо мінімум оновлено (знайдено непарне число)
+if found == True:
     print(f"The minimum odd number is: {minimum}")
 else:
     print("0")
