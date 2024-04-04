@@ -1,4 +1,5 @@
-my_list = [-3, -2, -1, 0, 1, 2, 3]
+my_list = list(map(int, input("Введіть список цілих чисел, розділених пробілами"
+                              "(обов'язково додайте принаймні одне позитивне): ").split()))
 index = 0
 
 # go through list to find a positive element
