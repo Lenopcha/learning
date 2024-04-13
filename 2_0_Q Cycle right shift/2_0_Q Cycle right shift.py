@@ -1,4 +1,4 @@
-numbers = list(map(int, input("Give me some numbers: ")))
+numbers = list(map(int, input("Give me some numbers: ").split()))
 last_element = numbers[-1]
 
 for i in range(len(numbers) - 1, 0, -1):
