@@ -1,4 +1,4 @@
-numbers = list(map(int, input("Give me some numbers: ")))
+numbers = list(map(int, input("Give me some numbers: ").split()))
 print(numbers)
 max_index = numbers.index(max(numbers))
 min_index = numbers.index(min(numbers))
