@@ -17,7 +17,6 @@ def solution(A, K):
     for i in range(K):
         rotated_array[i] = A[len(A) - K + i]
 
-    # Copy the first len(A) - K elements to the remaining positions
     for i in range(len(A) - K):
         rotated_array[i + K] = A[i]
 
@@ -26,3 +25,4 @@ def solution(A, K):
 print(solution([3, 8, 9, 7, 6], 3))  # Output: [9, 7, 6, 3, 8]
 print(solution([0, 0, 0], 1))  # Output: [0, 0, 0]
 print(solution([1, 2, 3, 4], 4))  # Output: [1, 2, 3, 4]
+
