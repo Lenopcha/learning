@@ -1,6 +1,6 @@
-def major(x, y, z):
-    # Create a list of the values
-    values = [x, y, z]
+def major(*args):
+    # Convert arguments to list
+    values = list(args)
 
     # Count the number of True values
     true_count = values.count(True)
@@ -8,16 +8,11 @@ def major(x, y, z):
     # Print the number of True values found
     print(f"Number of True values: {true_count}")
 
-    # print the result
-    if true_count >= 2:
-        result = True
-        print(f"The majority of the values are True. Returning: {result}")
-    else:
-        result = False
-        print(f"The majority of the values are False. Returning: {result}")
+    # Determine and print the result
+    result = true_count > len(values) // 2
+    print(f"The majority of the values are {'True' if result else 'False'}. Returning: {result}")
 
     return result
-
 
 def get_boolean_input(prompt):
     while True:
@@ -26,22 +21,27 @@ def get_boolean_input(prompt):
             return user_input == 'true'
         print("Invalid input. Please enter 'true' or 'false'.")
 
-
 def main():
-    print("Welcome to the Majority Voting Program!")
-    print("Please enter three boolean values (true or false).")
+    print("Welcome to the Interactive Majority Voting Program!")
+    print("In this program, you will enter three boolean values (true or false).")
 
-    x = get_boolean_input("Enter the first value (true/false): ")
-    y = get_boolean_input("Enter the second value (true/false): ")
-    z = get_boolean_input("Enter the third value (true/false): ")
+    values = []
+    for i in range(1, 4):
+        value = get_boolean_input(f"Enter value {i} (true/false): ")
+        values.append(value)
+        print(f"Value {i} is {value}.")
+        if value:
+            print(f"Value {i} is True, adding to the True count.")
+        else:
+            print(f"Value {i} is False, not adding to the True count.")
 
-    print(f"You entered: x = {x}, y = {y}, z = {z}")
+    print(f"You entered: {values}")
 
-    result = major(x, y, z)
+    result = major(*values)
 
     print(f"The result of the majority voting is: {result}")
 
-    print("Thank you for using the program!")
+    print("Thank you for participating in the program!")
 
-
+# Run the main function
 main()
