@@ -2,17 +2,19 @@ def major(*args):
     # Convert arguments to list
     values = list(args)
 
-    # Count the number of True values
+    # Count the occurrences of True and False
     true_count = values.count(True)
+    false_count = values.count(False)
 
-    # Print the number of True values found
+    # Print the number of True and False values found
     print(f"Number of True values: {true_count}")
+    print(f"Number of False values: {false_count}")
 
     # Determine and print the result
-    result = true_count > len(values) // 2
+    result = true_count > false_count
     print(f"The majority of the values are {'True' if result else 'False'}. Returning: {result}")
-
     return result
+
 
 def get_boolean_input(prompt):
     while True:
@@ -21,27 +23,19 @@ def get_boolean_input(prompt):
             return user_input == 'true'
         print("Invalid input. Please enter 'true' or 'false'.")
 
+
 def main():
     print("Welcome to the Interactive Majority Voting Program!")
     print("In this program, you will enter three boolean values (true or false).")
 
-    values = []
-    for i in range(1, 4):
-        value = get_boolean_input(f"Enter value {i} (true/false): ")
-        values.append(value)
-        print(f"Value {i} is {value}.")
-        if value:
-            print(f"Value {i} is True, adding to the True count.")
-        else:
-            print(f"Value {i} is False, not adding to the True count.")
+    bool1 = get_boolean_input("Enter the first boolean value (true/false): ")
+    bool2 = get_boolean_input("Enter the second boolean value (true/false): ")
+    bool3 = get_boolean_input("Enter the third boolean value (true/false): ")
 
-    print(f"You entered: {values}")
+    # Call the major function with the user inputs
+    result = major(bool1, bool2, bool3)
+    print(f"\nThe result of the majority voting is: {result}")
 
-    result = major(*values)
 
-    print(f"The result of the majority voting is: {result}")
-
-    print("Thank you for participating in the program!")
-
-# Run the main function
+# Start the interactive program
 main()
