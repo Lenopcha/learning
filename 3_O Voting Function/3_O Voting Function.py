@@ -1,14 +1,11 @@
 def major(*args):
-    # Count the occurrences of True
-    true_count = sum(args)
-
-    # Calculate the half length
-    half_length = len(args) / 2
+    # Count the occurrences of True and False
+    true_count = args.count(True)
+    false_count = args.count(False)
 
     # Determine and return the majority value
-    if true_count > half_length:
+    if true_count > false_count:
         return True
-
     return False
 
 
@@ -19,4 +16,3 @@ print(major(False, False, False))  # Output: False
 print(major(True, True, True))  # Output: True
 print(major(True, False, True, False, True))  # Output: True
 print(major(True, False, False, False))  # Output: False
-
