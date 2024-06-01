@@ -18,7 +18,7 @@ def repack_boxes(original_boxes, bars_per_new_box):
     return new_boxes, (leftover_boxes, remaining_bars)
 
 
-# Example usage:
+# Example usage::
 original_boxes = [2, 3, 1, 5]
 bars_per_new_box = 5
 repack_boxes(original_boxes, bars_per_new_box)
